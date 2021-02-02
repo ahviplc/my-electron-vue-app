@@ -145,6 +145,68 @@ app.on('ready', () => {
         }
 ```
 
+# 打包
+```markdown
+1. 可使用electron-builder或者electron-packager进行打包
+
+> npm install -g electron-builder
+
+electron-userland/electron-builder: A complete solution to package and build a ready for distribution Electron app with “auto update” support out of the box
+https://github.com/electron-userland/electron-builder
+
+electron-userland/electron-builder-binaries
+https://github.com/electron-userland/electron-builder-binaries
+
+> npm install -g electron-package
+
+electron/electron-packager: Customize and package your Electron app with OS-specific bundles (.app, .exe, etc.) via JS or CLI
+https://github.com/electron/electron-packager
+
+2. 这里是使用electron-builder进行打包,下面列举可能打包过程中,有些压缩包或者资源无法正常网速下载的解决办法.
+首先执行命令
+> npm install -g electron-builder
+
+其electron的不同平台的具体路径-win已确认,其他待确认:
+macOS: ~/Library/Caches/electron
+Linux: ~/.cache/electron
+windows: %LOCALAPPDATA%\electron\cache
+
+其electron-builder的不同平台的具体路径:
+macOS: ~/Library/Caches/electron-builder
+Linux: ~/.cache/electron-builder
+windows: %LOCALAPPDATA%\electron-builder\cache
+
+3. 下载electron
+> Releases · electron/electron | 可在此下载
+> https://github.com/electron/electron/releases
+
+> electron Mirror | electron 淘宝镜像 速度快
+> https://npm.taobao.org/mirrors/electron/
+
+在win10下(其他平台对应上面不同路径放入即可) 贴出路径 下载的压缩包 不用解压 放到此文件夹下即可
+> C:\Users\Administrator\AppData\Local\electron\Cache
+> C:\Users\Administrator\AppData\Local\electron\Cache\electron-v2.0.18-win32-x64.zip
+
+4. 下载其他关键压缩包
+> electron-userland/electron-builder-binaries | 可在此下载
+> https://github.com/electron-userland/electron-builder-binaries
+
+下载 winCodeSign-2.4.0 | nsis-3.0.3.2 | nsis-resources-3.3.0
+
+此要把压缩包解压,解压之后,具体放入路径 拿win10举例(其他平台对应上面不同路径放入即可)
+> C:\Users\Administrator\AppData\Local\electron-builder\Cache\winCodeSign\winCodeSign-2.4.0
+> C:\Users\Administrator\AppData\Local\electron-builder\Cache\nsis\nsis-3.0.3.2
+> C:\Users\Administrator\AppData\Local\electron-builder\Cache\nsis\nsis-resources-3.3.0
+
+5. 到这里打包环境都好了
+执行命令即可打包
+npm run build
+
+6.具体打包详解可借鉴下面网址
+> Electron-builder打包详解_weixin_34162695的博客-CSDN博客_electron-builder 打包
+> https://blog.csdn.net/weixin_34162695/article/details/91461372
+```
+
 # About me
 
 ```
