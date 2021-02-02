@@ -52,6 +52,9 @@ This project was generated with [electron-vue](https://github.com/SimulatedGREG/
 中文版 · 官方文档 · 简介 · electron-vue
 https://simulatedgreg.gitbooks.io/electron-vue/content/cn/
 
+英文版 · 官方文档 · Introduction · electron-vue
+https://simulatedgreg.gitbooks.io/electron-vue/content/en/
+
 GitHub - SimulatedGREG/electron-vue: An Electron & Vue.js quick start boilerplate with vue-cli scaffolding, common Vue plugins, electron-packager/electron-builder, unit/e2e testing, vue-devtools, and webpack.
 https://github.com/SimulatedGREG/electron-vue
 
@@ -117,3 +120,8 @@ https://github.com/ahviplc/my-electron-vue-app
 
 https://github.com/ahviplc/my-electron-vue-app.git
 ```
+
+> 官方版 electron demo 请去下面链接
+
+> ahviplc/my-electron-app: my-electron-app demo by LC.
+https://github.com/ahviplc/my-electron-app
