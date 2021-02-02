@@ -3,8 +3,8 @@
 const chalk = require('chalk')
 const electron = require('electron')
 const path = require('path')
-const { say } = require('cfonts')
-const { spawn } = require('child_process')
+const {say} = require('cfonts')
+const {spawn} = require('child_process')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const webpackHotMiddleware = require('webpack-hot-middleware')
@@ -50,7 +50,7 @@ function startRenderer () {
 
     compiler.hooks.compilation.tap('compilation', compilation => {
       compilation.hooks.htmlWebpackPluginAfterEmit.tapAsync('html-webpack-plugin-after-emit', (data, cb) => {
-        hotMiddleware.publish({ action: 'reload' })
+        hotMiddleware.publish({action: 'reload'})
         cb()
       })
     })
@@ -64,6 +64,36 @@ function startRenderer () {
       {
         contentBase: path.join(__dirname, '../'),
         quiet: true,
+        // port: 9080, // 这个还是不能乱改 使用9080 和Project is running at http://localhost:9080/ 这个保持一致 即可websocket通讯
+        // 配置proxy 解决跨域问题 跨源资源共享 (CORS)
+        proxy: {
+          '/one.json': {
+            // 请求的目标服务器地址
+            target: 'https://v2.jinrishici.com',
+            // 设置允许跨域
+            changeOrigin: true,
+            // 重写路径
+            pathRewrite: {
+              '^/one.json': '/one.json'
+            },
+            headers: {
+              referer: ''
+            }
+          },
+          '/getAPoem': {
+            // 请求的目标服务器地址
+            target: 'https://v2.jinrishici.com',
+            // 设置允许跨域
+            changeOrigin: true,
+            // 重写路径
+            pathRewrite: {
+              '^/getAPoem': '/one.json'
+            },
+            headers: {
+              referer: ''
+            }
+          }
+        },
         before (app, ctx) {
           app.use(hotMiddleware)
           ctx.middleware.waitUntilValid(() => {
@@ -85,7 +115,7 @@ function startMain () {
 
     compiler.hooks.watchRun.tapAsync('watch-run', (compilation, done) => {
       logStats('Main', chalk.white.bold('compiling...'))
-      hotMiddleware.publish({ action: 'compiling' })
+      hotMiddleware.publish({action: 'compiling'})
       done()
     })
 
@@ -127,7 +157,7 @@ function startElectron () {
   }
 
   electronProcess = spawn(electron, args)
-  
+
   electronProcess.stdout.on('data', data => {
     electronLog(data, 'blue')
   })
@@ -161,9 +191,13 @@ function greeting () {
   const cols = process.stdout.columns
   let text = ''
 
-  if (cols > 104) text = 'electron-vue'
-  else if (cols > 76) text = 'electron-|vue'
-  else text = false
+  if (cols > 104) {
+    text = 'electron-vue'
+  } else if (cols > 76) {
+    text = 'electron-|vue'
+  } else {
+    text = false
+  }
 
   if (text) {
     say(text, {
@@ -171,7 +205,9 @@ function greeting () {
       font: 'simple3d',
       space: false
     })
-  } else console.log(chalk.yellow.bold('\n  electron-vue'))
+  } else {
+    console.log(chalk.yellow.bold('\n  electron-vue'))
+  }
   console.log(chalk.blue('  getting ready...') + '\n')
 }
 

@@ -11,6 +11,11 @@ export default new Router({
       component: require('@/components/LandingPage').default
     },
     {
+      path: '/poem',
+      name: 'poem-page',
+      component: require('@/components/poem/poem').default
+    },
+    {
       path: '*',
       redirect: '/'
     }

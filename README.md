@@ -111,6 +111,40 @@ app.on('ready', () => {
 })
 ```
 
+> 4.配置proxy 解决跨域问题 跨源资源共享 (CORS)
+```javascript
+// 在.electron-vue\dev-runner.js中
+// 配置proxy 解决跨域问题 跨源资源共享 (CORS)
+        proxy: {
+          '/one.json': {
+            // 请求的目标服务器地址
+            target: 'https://v2.jinrishici.com',
+            // 设置允许跨域
+            changeOrigin: true,
+            // 重写路径
+            pathRewrite: {
+              '^/one.json': '/one.json'
+            },
+            headers: {
+              referer: ''
+            }
+          },
+          '/getAPoem': {
+            // 请求的目标服务器地址
+            target: 'https://v2.jinrishici.com',
+            // 设置允许跨域
+            changeOrigin: true,
+            // 重写路径
+            pathRewrite: {
+              '^/getAPoem': '/one.json'
+            },
+            headers: {
+              referer: ''
+            }
+          }
+        }
+```
+
 # About me
 
 ```

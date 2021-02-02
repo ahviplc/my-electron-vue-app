@@ -26,6 +26,7 @@
                     <button class="alt" @click="open('https://electron.atom.io/docs/')">Electron</button>
                     <button class="alt" @click="open('https://vuejs.org/v2/guide/')">Vue.js</button>
                     <button class="alt" @click="click_handle">Hi</button>
+                    <button class="alt" @click="GoToPoem_handle">GoToPoem</button>
                 </div>
             </div>
         </main>
@@ -67,6 +68,10 @@
         console.log(this.msg)
         this.msg = '我改变了...'
         console.log(this.msg)
+      },
+      GoToPoem_handle () {
+        // 路由跳转
+        this.$router.push('/poem')
       }
     }
   }
