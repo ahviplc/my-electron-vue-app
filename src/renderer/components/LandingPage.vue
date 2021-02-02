@@ -45,11 +45,17 @@
         author: 'LC'
       }
     },
+    beforeCreate () {
+      console.log('...beforeCreate...')
+    },
+    created () {
+      console.log('...created...')
+    },
+    beforeMount () {
+      console.log('...beforeMount...')
+    },
     mounted () {
       console.log('...mounted...')
-    },
-    onLoad () {
-      console.log('...onLoad...')
     },
     methods: {
       open (link) {

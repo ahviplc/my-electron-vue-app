@@ -12,6 +12,11 @@
 
 > https://github.com/electron/electron/tree/v11.1.1/docs/fiddles/quick-start
 
+> 中文版 · 官方文档 · 简介 · electron-vue
+  https://simulatedgreg.gitbooks.io/electron-vue/content/cn/
+
+> https://github.com/SimulatedGREG/electron-vue
+
 # run it.
 
 #### Build Setup
@@ -44,6 +49,9 @@ This project was generated with [electron-vue](https://github.com/SimulatedGREG/
 # 其他
 
 ```markdown
+中文版 · 官方文档 · 简介 · electron-vue
+https://simulatedgreg.gitbooks.io/electron-vue/content/cn/
+
 GitHub - SimulatedGREG/electron-vue: An Electron & Vue.js quick start boilerplate with vue-cli scaffolding, common Vue plugins, electron-packager/electron-builder, unit/e2e testing, vue-devtools, and webpack.
 https://github.com/SimulatedGREG/electron-vue
 
