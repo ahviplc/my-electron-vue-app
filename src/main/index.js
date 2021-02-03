@@ -1,6 +1,6 @@
 'use strict'
 
-import {app, BrowserWindow} from 'electron'
+import {app, BrowserWindow, globalShortcut} from 'electron'
 
 const path = require('path')
 
@@ -28,9 +28,11 @@ function createWindow () {
     width: 1000,
     webPreferences: {
       nodeIntegration: true,
+      webSecurity: false // 这个是为了解决编译打包之后安装到自定义文件夹下无法正常运行 报错 Not allowed to load local resource: file:///D:/#diyappelec\my-electron-vue-app\resources\app.asar\dist\electron/index.html
+      // 这里Electron版本是2.0.18,无需下面配置也可直接使用remote
       // 在electron 10.0.0之后，remote模块默认关闭
       // 必须手动设置webPreferences中的enableRemoteModule为true之后才能使用
-      enableRemoteModule: true
+      // enableRemoteModule: true
     }
   })
 
@@ -66,6 +68,12 @@ function createWindow () {
 // 创建浏览器窗口时，调用这个函数
 // 部分 API 在 ready 事件触发后才能使用
 app.on('ready', () => {
+  // 打开开发者工具快捷键设置成ctrl+shift+i
+  globalShortcut.register('CommandOrControl+Shift+i', function () {
+    console.log('index.js app.on ready -> 使用快捷键ctrl+shift+i打开开发者工具了...')
+    mainWindow.webContents.openDevTools()
+  })
+  // 继续原来逻辑
   createWindow() // 注意 这里是调用createWindow()方法 直接写成createWindow是不好使的
   console.log('index.js app.on ready path -> ', path.join(__dirname, 'index.js'))
   console.log('index.js app.on ready')

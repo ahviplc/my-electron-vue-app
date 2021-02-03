@@ -35,6 +35,9 @@
 
 <script>
   import SystemInformation from './LandingPage/SystemInformation'
+  // electron的remote
+  // let remote = require('electron').remote
+  // const app = remote.app
 
   export default {
     name: 'landing-page',
@@ -57,6 +60,9 @@
     },
     mounted () {
       console.log('...mounted...')
+      // remote可用
+      // console.log(remote, app)
+      // console.log(app.getAppPath())
     },
     methods: {
       open (link) {

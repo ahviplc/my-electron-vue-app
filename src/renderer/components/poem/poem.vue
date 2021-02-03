@@ -52,10 +52,11 @@
         // let baseURL_cors = 'http://localhost:9080'
         // eslint-disable-next-line camelcase
         // let jinrishici_url = '/one.json'
+        // ☆备注:在【src/main/index.js:31】配置好 webSecurity: false 之后,无论是开发还是生产环境,直接使用full_jinrishici_url也都是可以的了,无跨域问题了 已经实践证明.
         // eslint-disable-next-line camelcase
-        // let full_jinrishici_url = 'https://v2.jinrishici.com/one.json'
+        let full_jinrishici_url = 'https://v2.jinrishici.com/one.json'
         // eslint-disable-next-line camelcase
-        let full_jinrishici_url_cors = 'http://localhost:9080/getAPoem'
+        // let full_jinrishici_url_cors = 'http://localhost:9080/getAPoem'
         // -------------------------------------------------------
         // axios.get(jinrishici_url)
         //   .then((res) => {
@@ -68,7 +69,7 @@
         axios({
           // baseURL: baseURL_cors,
           method: 'get',
-          url: full_jinrishici_url_cors,
+          url: full_jinrishici_url,
           // `headers` 是即将被发送的自定义请求头
           headers: {
             'X-User-Token': '7yzsEYo2vZ3zwBG+yfTtWtblmvFbz7QD' // 获取 Token 的地址为【https://v2.jinrishici.com/token】,GET方法,Token 用于鉴别和区分每个用户，获取后 永久有效。
