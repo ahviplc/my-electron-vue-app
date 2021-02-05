@@ -25,6 +25,12 @@
 > Electron:2.0.18
 
 > Node:8.9.3
+
+> ☆ 此项目可直接在vue组件页面,使用node进行后端操作,因为这node开发环境可以有效启用.
+> src/renderer/components/poem/poem.vue:39
+> console.log('...poem.vue node os..arch() -> ', require('os').arch(), '...poem.vue node os..platform() -> ', require('os').platform()) 
+> // ...poem.vue node os..arch() ->  x64 ...poem.vue node os..platform() ->  win32
+
 ```
 
 # run it.

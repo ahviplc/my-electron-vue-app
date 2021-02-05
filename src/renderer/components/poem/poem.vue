@@ -36,6 +36,7 @@
     },
     mounted () {
       console.log('...mounted...')
+      console.log('...poem.vue node os..arch() -> ', require('os').arch(), '...poem.vue node os..platform() -> ', require('os').platform()) // ...poem.vue node os..arch() ->  x64 ...poem.vue node os..platform() ->  win32
     },
     methods: {
       getAPoem () {
